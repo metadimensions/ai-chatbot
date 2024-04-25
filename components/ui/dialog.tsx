@@ -5,6 +5,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { cn } from '@/lib/utils'
 import { IconClose } from '@/components/ui/icons'
+import { AlertDialogDescription } from '@radix-ui/react-alert-dialog'
 
 const Dialog = DialogPrimitive.Root
 
@@ -27,6 +28,8 @@ const DialogOverlay = React.forwardRef<
     {...props}
   />
 ))
+DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
 const DialogContent = React.forwardRef<
@@ -52,6 +55,9 @@ const DialogContent = React.forwardRef<
   </DialogPortal>
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
+
+
+
 
 const DialogHeader = ({
   className,
@@ -81,6 +87,11 @@ const DialogFooter = ({
 )
 DialogFooter.displayName = 'DialogFooter'
 
+DialogHeader.displayName = 'DialogHeader'
+
+DialogContent.displayName = 'DialogContent'
+
+
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
@@ -94,6 +105,7 @@ const DialogTitle = React.forwardRef<
     {...props}
   />
 ))
+
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
 const DialogDescription = React.forwardRef<
@@ -107,6 +119,14 @@ const DialogDescription = React.forwardRef<
   />
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName
+
+
+
+
+
+
+
+
 
 export {
   Dialog,

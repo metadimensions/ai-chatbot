@@ -39,7 +39,7 @@ export const programmingLanguages: languageMap = {
   rust: '.rs',
   scala: '.scala',
   haskell: '.hs',
-  lua: '.lua',
+  lua: '.lua',  
   shell: '.sh',
   sql: '.sql',
   html: '.html',
@@ -50,7 +50,7 @@ export const programmingLanguages: languageMap = {
 export const generateRandomString = (length: number, lowercase = false) => {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXY3456789' // excluding similar looking characters like Z, 2, I, 1, O, 0
   let result = ''
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i++) {  
     result += chars.charAt(Math.floor(Math.random() * chars.length))
   }
   return lowercase ? result.toLowerCase() : result
@@ -59,13 +59,14 @@ export const generateRandomString = (length: number, lowercase = false) => {
 const CodeBlock: FC<Props> = memo(({ language, value }) => {
   const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 })
 
+
   const downloadAsFile = () => {
     if (typeof window === 'undefined') {
       return
     }
     const fileExtension = programmingLanguages[language] || '.file'
     const suggestedFileName = `file-${generateRandomString(
-      3,
+      4,
       true
     )}${fileExtension}`
     const fileName = window.prompt('Enter file name' || '', suggestedFileName)
@@ -74,6 +75,9 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
       // User pressed cancel on prompt.
       return
     }
+
+    // the user will be cancelling the prompt then it will go to the blob otherwise 
+
 
     const blob = new Blob([value], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)

@@ -1,13 +1,19 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-        port: '',
-        pathname: '**'
-      }
-    ]
-  }
+    domains: ['lh3.googleusercontent.com'],
+  },
+  experimental: {
+    windowHistorySupport: true
+  },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'avatars.githubusercontent.com',
+  //       port: '',
+  //       pathname: '**'
+  //     }
+  //   ]
+  // }
 }
